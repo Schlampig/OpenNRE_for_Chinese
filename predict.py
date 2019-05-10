@@ -4,6 +4,7 @@ import os
 import itertools
 import numpy as np
 import jieba.posseg as pseg
+from flask import Flask, request, jsonify
 from prepare import init_embed_and_class, process_data
 from config import Config
 import models
@@ -12,6 +13,8 @@ import ipdb
 
 # Global Initialization
 ##########################################################################################
+app = Flask(__name__)
+
 os.environ['CUDA_VISIBLE_DEVICES'] = '0, 1, 2, 3'
 best_epoch = 15
 num_class = 51
@@ -112,7 +115,7 @@ def prettify(lst_sample, lst_pre):
             "head": sample["head"]["word"], 
             "tail": sample["tail"]["word"], 
             "relation": lst_pre[i_sample][0], 
-            "score": lst_pre[i_sample][1]
+            "score": str(lst_pre[i_sample][1])
             }
         lst_answer.append(d)
     return lst_answer
@@ -143,17 +146,34 @@ def predict(sentence, head, tail):
     return lst_answer
 
 
-# Run
+# Example
 ##########################################################################################
-if __name__ == "__main__":
-    s = "《后窗》是一部由阿尔弗雷德·希区柯克执导，詹姆斯·斯图尔特、格蕾丝·凯利、瑟尔玛·瑞特等主演的悬疑片。该片讲述了摄影记者杰弗瑞为了消磨时间，于是监视自己的邻居并且偷窥他们每天的生活，并由此识破一起杀妻分尸案的故事。1954年8月1日，该片在美国上映。"
-    h = ""
-    t = ""
-    
+def run_example():
+    s = "《软件体的生命周期》是特德·姜的作品，2015年5月译林出版社出版。译者张博然等。作者特德·姜是为世界科幻界认可的华裔科幻作家。他游走在科幻边缘，在科幻架构上探讨哲学、人性与情感。《软件体的生命周期》一书结集了特德·姜的《软件体的生命周期》、《赏心悦目》、《商人和炼金术士之门》等六部作品。随着数码体市场的发展、壮大、冷淡和萧条，数码体们的命运也随之发生变迁。"
+    h = "特德·姜"
+    t = "《软件体的生命周期》"
+    print("-----example----------------------------------")
     lst_ans = predict(s, h, t)
     for ans in lst_ans:
         for k_ans in ans:
             print(k_ans, " ", ans[k_ans])
         print()
-    print("Finished.")
+    print("-----example----------------------------------")
+    return None
 
+
+# Demo
+##########################################################################################
+@app.route("/", methods=["POST"])
+def hello():
+    context = request.json.get("context")
+    head = request.json.get("head")
+    tail = request.json.get("tail")
+    result = predict(context, head, tail)
+    return jsonify({"result": result})
+
+
+# Run
+##########################################################################################
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=7721, threaded=True)
