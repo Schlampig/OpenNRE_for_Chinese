@@ -2,9 +2,9 @@
 
 ## Source:
 This work is mainly modified from:
-  * **code**: the original tensorflow implemention [OpenNRE](https://github.com/NLPLearn/QANet) from [Natural Language Processing Lab at Tsinghua University (THUNLP)](https://github.com/thunlp), a pytorch reproduction [OpenNRE-PyTorch](https://github.com/ShulinCao/OpenNRE-PyTorch) from [Shulin Cao](https://github.com/ShulinCao), and another pytorch approach [ChineseNRE](https://github.com/buppt/ChineseNRE) from [buppt](https://github.com/buppt). <br>
+  * **code**: the original tensorflow implemention [OpenNRE](https://github.com/thunlp/OpenNRE) from [Natural Language Processing Lab at Tsinghua University (THUNLP)](https://github.com/thunlp), a pytorch reproduction [OpenNRE-PyTorch](https://github.com/ShulinCao/OpenNRE-PyTorch) from [Shulin Cao](https://github.com/ShulinCao), and another pytorch approach [ChineseNRE](https://github.com/buppt/ChineseNRE) from [buppt](https://github.com/buppt). <br>
   * **literature**: related papers and introduction about Neural Relation Extraction (NRE) are collected [here](https://github.com/Schlampig/Knowledge_Graph_Wander). <br>
-  * **old version**: the old version that mainly modified from [OpenNRE](https://github.com/NLPLearn/QANet) could be found [here](https://github.com/Schlampig/i_learn_deep/tree/master/OpenNRE_thunlp). <br>
+  * **old version**: the old version that mainly modified from [OpenNRE](https://github.com/thunlp/OpenNRE) could be found [here](https://github.com/Schlampig/i_learn_deep/tree/master/OpenNRE_thunlp). <br>
   * **embedding dictionary**: [Tencent AI Lab Embedding Corpus for Chinese Words and Phraseshttps](//ai.tencent.com/ailab/nlp/embedding.html). <br>
   * **embedding dictionary example**: Each line of Tencent_AILab_ChineseEmbedding.txt is like \[str(1 dimensions), vec(200 dimensions)\] below:
   ```
@@ -23,7 +23,7 @@ sample = {"postag": [{"word": str, "pos": str}, {"word": str, "pos": str}, ...],
                        {"predicate": str, "object_type": str, "subject_type": str, "object": str, "subject": str}, 
                        ...]}
 ```
-* **format of DuNRE**: DuNRE contains three main datasets as follows (factually the same format as [OpenNRE](https://github.com/NLPLearn/QANet)):
+* **format of DuNRE**: DuNRE contains three main datasets as follows (factually the same format as [OpenNRE](https://github.com/thunlp/OpenNRE)):
 ```
 1. Sample dataset:
     [
