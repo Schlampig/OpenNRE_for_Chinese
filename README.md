@@ -105,6 +105,7 @@ python predict
 <br>
 
 ## TODO
-- [x] Design way to automatically generate training samples such as [this strategy]().
+- [x] Design way to automatically generate training samples such as [this strategy](https://github.com/Schlampig/QANet_for_Chinese/tree/master/build_datasets).
 - [ ] Try different networks and find the optimal one.
+- [ ] Add customed networks to this framework.
 
