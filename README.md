@@ -61,9 +61,8 @@ sample = {"postag": [{"word": str, "pos": str}, {"word": str, "pos": str}, ...],
         ...
     ]
 ```
-<br>
-* **pre-process**: 
 
+<br>
 
 ## Codes Dependency:
 ```
@@ -75,11 +74,15 @@ predict -> prepare
       | -> config -> train/test
       | -> models -> networks        
 ```
+
 <br>
 
 ## Command Line:
 * **generate DuNRE**: see [here]().
-
+* **prepare**: transform DuNRE to numpy/pickle file for the model.
+```bash
+python learn
+```
 * **train**: train, validate and save the model.
 ```bash
 python learn
