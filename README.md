@@ -81,7 +81,7 @@ predict -> prepare
 * **generate DuNRE**: detail steps could be seen [here](https://github.com/Schlampig/OpenNRE_for_Chinese/tree/master/prepare_data).
 * **prepare**: transform DuNRE to numpy/pickle file for the model.
 ```bash
-python learn
+python prepare
 ```
 * **train**: train, validate and save the model.
 ```bash
