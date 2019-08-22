@@ -109,3 +109,5 @@ python predict
 - [ ] Try different networks and find the optimal one.
 - [ ] Add customed networks to this framework.
 
+
+![AI日读（Daily AI Paper View）](https://github.com/Schlampig/Knowledge_Graph_Wander/blob/master/content/daily_ai_paper_view.png)
