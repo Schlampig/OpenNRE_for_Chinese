@@ -104,10 +104,5 @@ python predict
   * Flask(optional, if runing the server.py)
 <br>
 
-## TODO
-- [x] Design way to automatically generate training samples such as [this strategy](https://github.com/Schlampig/QANet_for_Chinese/tree/master/build_datasets).
-- [ ] Try different networks and find the optimal one.
-- [ ] Add customed networks to this framework.
-
 
 <img src="https://github.com/Schlampig/Knowledge_Graph_Wander/blob/master/content/daily_ai_paper_view.png" height=25% width=25% />
